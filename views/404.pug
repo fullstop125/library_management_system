@@ -1,0 +1,22 @@
+doctype html
+head
+    // Required meta tags
+    include includes/head.pug
+    title Login | EvaScribe
+// loader Start
+include includes/preloader.pug
+// Wrapper Start
+.wrapper
+    .container-fluid.p-0
+        .row.no-gutters
+            .col-sm-12.text-center
+                .iq-error
+                    h1 404
+                    h4.mb-0 Oops! This Page is Not Working.
+                    p The requested page dose not exist.
+                    a.btn.btn-primary.mt-3(href='/')
+                        i.ri-home-4-line
+                        | Back to Home
+                    img.img-fluid.iq-error-img(src='images/error/01.png' alt='')
+// Wrapper END
+include includes/scripts.pug

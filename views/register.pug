@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    include includes/head.pug
+    title Login | EvaScribe
+
+  body
+    include includes/preloader.pug
+    // Sign in Start
+    section.sign-in-page.bg-white
+      .container-fluid.p-0
+        .row.no-gutters
+          .col-sm-6.align-self-center
+            .sign-in-from
+              h1.mb-0 Sign Up
+              p Enter your email address and password to access admin panel.
+              form.mt-4
+                .form-group
+                  label(for='fullname') Your Full Name
+                  input#exampleInputEmail1.form-control.mb-0(type='text' name="fullname" placeholder='Your Full Name')
+                .form-group
+                  label(for='exampleInputEmail2') Email address
+                  input#exampleInputEmail2.form-control.mb-0(type='email' placeholder='Enter email')
+                .form-group
+                  label(for='exampleInputPassword1') Password
+                  input#exampleInputPassword1.form-control.mb-0(type='password' placeholder='Password')
+                .d-inline-block.w-100
+                  .custom-control.custom-checkbox.d-inline-block.mt-2.pt-1
+                    input#customCheck1.custom-control-input(type='checkbox')
+                    label.custom-control-label(for='customCheck1')
+                      | I accept 
+                      a(href='#') Terms and Conditions
+                  button.btn.btn-primary.float-right(type='submit') Sign Up
+                  a.d-block.mt-4(href='/login') Already have an account? Login
+          .col-sm-6.text-center
+            .sign-in-detail.text-white(style='background: url(https://media.gettyimages.com/photos/connecting-with-like-minded-young-go-getters-picture-id947724254?s=2048x2048) no-repeat 0 0; background-size: cover;')
+              a.sign-in-logo.mb-5(href='#')
+                img.img-fluid(src='../images/logo.png' alt='logo')
+    // Sign in END
+    
+    include includes/scripts.pug

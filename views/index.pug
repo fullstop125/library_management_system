@@ -1,0 +1,49 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    title MY APP
+body
+    ul 
+        each val in data
+            li= `{name : ${val.name}, id : ${val.id}, course : ${val.course}, year : ${val.year}}`
+
+    br
+    hr
+    h2 Delete
+    br
+    input(type="text" placeholder="Name you want to delete" name="name")#name
+    br
+    br
+    button#deletebtn Delete
+    br
+
+    br
+    hr
+    h2 Update
+    br
+    input(type="text" placeholder="Name1" name="name1")#name1
+    br
+    br
+    input(type="text" placeholder="Name2" name="name2")#name2
+    br
+    br
+    button#updatebtn Update
+
+    // ===============================================================================================
+    script(src='vendor/jquery/jquery-3.2.1.min.js')
+    // ===============================================================================================
+    script(src='vendor/animsition/js/animsition.min.js')
+    // ===============================================================================================
+    script(src='vendor/bootstrap/js/popper.js')
+    script(src='vendor/bootstrap/js/bootstrap.min.js')
+    // ===============================================================================================
+    script(src='vendor/select2/select2.min.js')
+    // ===============================================================================================
+    script(src='vendor/daterangepicker/moment.min.js')
+    script(src='vendor/daterangepicker/daterangepicker.js')
+    // ===============================================================================================
+    script(src='vendor/countdowntime/countdowntime.js')
+    // ===============================================================================================
+    script(src='js/main.js')
+    // ===============================================================================================
+    script(src="/js/dev.js")

@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    include includes/head.pug
+    title Login | EvaScribe
+
+  body
+    include includes/preloader.pug
+    // Sign in Start
+    section.sign-in-page.bg-white
+      .container-fluid.p-0
+        .row.no-gutters
+          .col-sm-6.align-self-center
+            .sign-in-from
+              h1.mb-0 Sign in
+              p Enter your email address and password to access admin panel.
+              form.mt-4
+                .form-group
+                  label(for='exampleInputEmail1') Email address
+                  input#exampleInputEmail1.form-control.mb-0(type='email' placeholder='Enter email')
+                .form-group
+                  label(for='exampleInputPassword1') Password
+                  a.float-right(href='#') Forgot password?
+                  input#exampleInputPassword1.form-control.mb-0(type='password' placeholder='Password')
+                .d-inline-block.w-100
+                  .custom-control.custom-checkbox.d-inline-block.mt-2.pt-1
+                    input#customCheck1.custom-control-input(type='checkbox')
+                    label.custom-control-label(for='customCheck1') Remember Me
+                  button.btn.btn-primary.float-right(type='submit') Sign in
+                  a.d-block.mt-4(href='/register') Don't have an account? Register
+          .col-sm-6.text-center
+            .sign-in-detail.text-white(style='background: url(https://media.gettyimages.com/photos/connecting-with-like-minded-young-go-getters-picture-id947724254?s=2048x2048) no-repeat 0 0; background-size: cover; background-position: center;')
+              a.sign-in-logo.mb-5(href='/register')
+                img.img-fluid(src='../images/logo.png' alt='logo')
+    // Sign in END
+
+    include includes/scripts.pug

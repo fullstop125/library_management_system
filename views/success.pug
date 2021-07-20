@@ -1,0 +1,22 @@
+doctype html
+head
+    // Required meta tags
+    include includes/head.pug
+    title Login | EvaScribe
+// loader Start
+include includes/preloader.pug
+// Wrapper Start
+.wrapper
+    .container-fluid.p-0
+        .row.no-gutters
+            .col-sm-12.text-center
+                .iq-error(style='display: flex; flex-direction: column; justify-content: center;align-items: center;')
+                    h1.text-success Success
+                    h4.mb-0 Task successfully completed!
+                    p You will receive all stats on your dashboard.
+                    a.btn.btn-primary.mt-3(href='/')
+                        i.ri-home-4-line
+                        | Back to Home
+
+// Wrapper END
+include includes/scripts.pug

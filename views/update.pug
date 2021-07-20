@@ -1,0 +1,164 @@
+doctype html
+html
+    head
+        include includes/head.pug
+        title Welcome | EvaScribe
+
+    body
+        include includes/preloader.pug
+        // Content start
+
+        // Wrapper Start
+        .wrapper
+            // Sidebar
+            include includes/sidebar.pug
+            // TOP Nav Bar
+            .iq-top-navbar
+                .iq-navbar-custom
+                    .iq-sidebar-logo
+                        .top-logo
+                            a.logo(href='/')
+                                img.img-fluid(src='../images/logo.png' alt='')
+                                span EvaScribe
+                    .navbar-breadcrumb
+                        h5.mb-0 Dashboard
+                        nav(aria-label='breadcrumb')
+                            ul.breadcrumb
+                                li.breadcrumb-item
+                                    a(href='/') Home
+                                li.breadcrumb-item.active(aria-current='page') View All Records
+                    nav.navbar.navbar-expand-lg.navbar-light.p-0
+                        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                            i.ri-menu-3-line
+                        .iq-menu-bt.align-self-center
+                            .wrapper-menu
+                                .line-menu.half.start
+                                .line-menu
+                                .line-menu.half.end
+                        #navbarSupportedContent.collapse.navbar-collapse
+                            ul.navbar-nav.ml-auto.navbar-list
+                                li.nav-item.iq-full-screen
+                                    a#btnFullscreen.iq-waves-effect(href='#')
+                                        i.ri-fullscreen-line
+                        ul.navbar-list
+                            li
+                                a.search-toggle.iq-waves-effect.bg-primary.text-white(href='#')
+                                    img.img-fluid.rounded(src='../images/user/08.jpg' alt='user')
+                                .iq-sub-dropdown.iq-user-dropdown
+                                    .iq-card.iq-card-block.iq-card-stretch.iq-card-height.shadow-none.m-0
+                                        .iq-card-body.p-0
+                                            .bg-primary.p-3
+                                                h5.mb-0.text-white.line-height Hello Eva
+                                            .d-inline-block.w-100.text-center.p-3
+                                                a.iq-bg-danger.iq-sign-btn(href='sign-in.html' role='button')
+                                                    | Sign out
+                                                    i.ri-login-box-line.ml-2
+            // TOP Nav Bar END
+            // Page Content
+            #content-page.content-page
+                .container-fluid
+                .row
+                    .col-lg-12
+                        button.btn.btn-outline-danger.mb-3(type='button' data-toggle='modal' data-target='.delete-all')
+                            i.ri-alert-line
+                            | Delete All
+                        .modal.fade.delete-all(tabindex='-1' role='dialog' aria-hidden='true')
+                            .modal-dialog.modal-sm
+                                .modal-content
+                                    .modal-header
+                                        h5.modal-title Warning!
+                                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                                        span(aria-hidden='true') &times;
+                                    .modal-body
+                                        p Are you sure you want to delete all records?
+                                    .modal-footer
+                                        form(action="", method="post")
+                                        button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+                                        button.btn.btn-danger(type='button') Delete All
+
+
+                    .col-lg-3
+                        .row
+                            .col-md-12
+                                .iq-card
+                                    .iq-card-body
+                                        .row
+                                            .col-lg-12.mb-2.d-flex.justify-content-between
+                                                .icon.iq-icon-box.rounded-circle.iq-bg-primary.rounded-circle(data-wow-delay='0.2s')
+                                                    i.ri-account-box-line
+                                            .col-lg-12.mt-3
+                                                h6.card-title.text-uppercase.text-secondary.mb-0 Students Lent
+                                                span.h2.text-dark.mb-0.counter.d-inline-block.w-100 91
+                            .col-md-12
+                                .iq-card
+                                    .iq-card-body
+                                        .row
+                                            .col-lg-12.mb-2.d-flex.justify-content-between
+                                                .icon.iq-icon-box.rounded-circle.iq-bg-danger.rounded-circle(data-wow-delay='0.2s')
+                                                    i.ri-window-line
+                                            .col-lg-12.mt-3
+                                                h6.card-title.text-uppercase.text-secondary.mb-0 Books Lent
+                                                span.h2.text-dark.mb-0.counter.d-inline-block.w-100 750
+
+                    .col-lg-9
+                        .iq-card
+                            .iq-card-header.d-flex.justify-content-between
+                                .iq-header-title
+                                    h4.card-title Books Lending Summary
+                                .iq-card-header-toolbar.d-flex.align-items-center
+                                    .dropdown
+                                        span#dropdownMenuButton1.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
+                                            i.ri-more-2-fill
+                                        .dropdown-menu.dropdown-menu-right.editinfo(aria-labelledby='dropdownMenuButton' style='')
+                                            a.dropdown-item.active.text-white(href='javascript:;')
+                                                i.ri-eye-fill.mr-2
+                                                | View
+                                            a.dropdown-item(href='javascript:;')
+                                                i.ri-delete-bin-6-fill.mr-2
+                                                | Delete
+                                            a.dropdown-item(href='javascript:;')
+                                                i.ri-pencil-fill.mr-2
+                                                | Edit
+                            .iq-card-body
+                                .table-responsive
+                                    table.table.mb-0.table-borderless.text-center#bookDatatable
+                                        thead
+                                            tr
+                                            th(scope='col') Student Name
+                                            th(scope='col') Student ID
+                                            th(scope='col') Lib. Card No.
+                                            //- th(scope='col') Fee Status
+                                            th(scope='col') Phone No.
+                                            th(scope='col') Books Lent
+                                            th.selectopt(scope='col') Select
+                                            th.editopt(scope='col') Edit
+                                        tbody
+                                            each val in data
+                                                tr
+                                                    td= val.name
+                                                    td= val.studentid
+                                                    td= val.libcardno
+                                                    //- td
+                                                    //-     if val.feestats == true
+                                                    //-         .badge.badge-pill.badge-success Paid
+                                                    //-     else
+                                                    //-         .badge.badge-pill.badge-danger Pending
+                                                    td 0712254001
+
+                                                    td= val.books.length
+                                                    td.selectopt
+                                                        .custom-control.custom-checkbox
+                                                            input.custom-control-input(type='checkbox')
+                                                            label.custom-control-label(for='customCheck')
+                                                    td.editopt
+                                                        button.btn.btn-success(type='button')
+                                                            i.ri-settings-4-fill
+                                                            | Edit
+
+        // Wrapper END
+
+        include includes/footer.pug
+
+        // Content end
+
+        include includes/scripts.pug

@@ -1,0 +1,109 @@
+doctype html
+html
+  head
+    include includes/head.pug
+    title Welcome | EvaScribe
+
+  body
+    include includes/preloader.pug
+    // Content start
+
+    // Wrapper Start
+    .wrapper
+      // Sidebar
+      include includes/sidebar.pug
+      // TOP Nav Bar
+      .iq-top-navbar
+        .iq-navbar-custom
+          .iq-sidebar-logo
+            .top-logo
+              a.logo(href='/')
+                img.img-fluid(src='../images/logo.png' alt='')
+                span EvaScribe
+          .navbar-breadcrumb
+            h5.mb-0 Dashboard
+            nav(aria-label='breadcrumb')
+              ul.breadcrumb
+                li.breadcrumb-item
+                  a(href='/') Home
+                li.breadcrumb-item.active(aria-current='page') Create Records
+          nav.navbar.navbar-expand-lg.navbar-light.p-0
+            button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+              i.ri-menu-3-line
+            .iq-menu-bt.align-self-center
+              .wrapper-menu
+                .line-menu.half.start
+                .line-menu
+                .line-menu.half.end
+            #navbarSupportedContent.collapse.navbar-collapse
+              ul.navbar-nav.ml-auto.navbar-list
+                li.nav-item.iq-full-screen
+                  a#btnFullscreen.iq-waves-effect(href='#')
+                    i.ri-fullscreen-line
+            ul.navbar-list
+              li
+                a.search-toggle.iq-waves-effect.bg-primary.text-white(href='#')
+                  img.img-fluid.rounded(src='../images/user/08.jpg' alt='user')
+                .iq-sub-dropdown.iq-user-dropdown
+                  .iq-card.iq-card-block.iq-card-stretch.iq-card-height.shadow-none.m-0
+                    .iq-card-body.p-0
+                      .bg-primary.p-3
+                        h5.mb-0.text-white.line-height Hello Eva
+                      .d-inline-block.w-100.text-center.p-3
+                        a.iq-bg-danger.iq-sign-btn(href='sign-in.html' role='button')
+                          | Sign out
+                          i.ri-login-box-line.ml-2
+      // TOP Nav Bar END
+      // Page Content
+      #content-page.content-page
+        .container-fluid
+          .row
+            .col-12
+              .iq-card
+                .iq-card-header.d-flex.justify-content-between
+                  .iq-header-title
+                    h4.card-title Student Information
+                .iq-card-body
+                  p
+                    | Enter the student's information in the fields below:
+                  form#create.row(action="/create" name="create" method="POST")
+                    .col-md-6
+                      .form-group
+                        label(for='name') Student Name*
+                        input#name.form-control(type='text' name="name" placeholder='Enter Student\'s Name')
+                    .col-md-6
+                      .form-group
+                        label(for='studentid') Student ID Number*
+                        input#studentid.form-control(type='number' name="studentid" placeholder='Enter Student\'s ID Number')
+                    .col-md-6
+                      .form-group
+                        label(for='libid') Library Card Number*
+                        input#libid.form-control(type='text' name="libid" placeholder='Enter Library Card Number')
+                    .col-md-6
+                      .form-group
+                        label(for='phoneno') Phone Number*
+                        input#phoneno.form-control(type='number' name="phoneno" placeholder='Enter Student\'s Phone Number')
+                    .col-md-6
+                      .form-group
+                        label(for='feestats') Fee Status*
+                        select#feestats.form-control.form-control-sm(name="feestats")
+                          option(value='') Select one
+                          option(value='Paid') Paid
+                          option(value='Not complete') Not complete
+                    //- .col-md-6
+                    //-   .form-group
+                    //-     label(for='exampleInputdate') Date Borrowed
+                    //-     input#dateborrowed.form-control.form-control-sm(name='date' type='date')
+
+                          
+
+                    .col-12
+                      button.btn.btn-primary.mt-3(type='submit') Create Student Entry
+
+    // Wrapper END
+
+    include includes/footer.pug
+
+    // Content end
+
+    include includes/scripts.pug
